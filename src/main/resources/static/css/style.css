@@ -1,0 +1,322 @@
+/* Dark Elegant Restaurant Order System Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #e0e0e0;
+}
+
+h1 {
+    text-align: center;
+    background: linear-gradient(90deg, #00d4ff 0%, #7b2ff7 50%, #f107a3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 3.5rem;
+    margin-bottom: 50px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    animation: fadeInDown 0.6s ease-out;
+    text-transform: uppercase;
+}
+
+h3 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    margin: 30px 0;
+    text-align: center;
+    font-weight: 600;
+}
+
+h3 span {
+    background: linear-gradient(90deg, #ffd700 0%, #ff6b35 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+/* Form Styling */
+form {
+    background: rgba(20, 20, 30, 0.85);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(123, 47, 247, 0.3);
+    max-width: 950px;
+    margin: 0 auto;
+    border: 1px solid rgba(123, 47, 247, 0.2);
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Table Styling */
+table {
+    width: auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: rgba(30, 30, 45, 0.9);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6),
+                0 0 20px rgba(0, 212, 255, 0.2);
+    margin: 30px auto;
+    max-width: 900px;
+    animation: slideUp 0.7s ease-out;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+th {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #00d4ff;
+    padding: 15px 20px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 2px solid rgba(0, 212, 255, 0.5);
+}
+
+td {
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(123, 47, 247, 0.2);
+    transition: all 0.3s ease;
+    color: #e0e0e0;
+    font-size: 1rem;
+}
+
+tr:hover td {
+    background: linear-gradient(90deg, rgba(123, 47, 247, 0.15) 0%, rgba(0, 212, 255, 0.15) 100%);
+    color: #ffffff;
+    transform: scale(1.01);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Category Icon Styling - Visual Indicators Only */
+th:nth-child(3)::before {
+    content: "🍽️";
+    margin-right: 8px;
+}
+
+td:nth-child(3) {
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+/* Input Styling */
+input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    accent-color: #7b2ff7;
+    transform: scale(1.3);
+    transition: transform 0.2s ease;
+}
+
+input[type="checkbox"]:hover {
+    transform: scale(1.5);
+}
+
+input[type="number"] {
+    width: 70px;
+    padding: 8px;
+    background: rgba(20, 20, 30, 0.8);
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #00d4ff;
+    background: rgba(0, 212, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+input[type="hidden"] {
+    display: none;
+}
+
+/* Button Styling */
+button[type="submit"] {
+    background: linear-gradient(135deg, #7b2ff7 0%, #f107a3 50%, #ff6b35 100%);
+    color: white;
+    padding: 18px 50px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 30px auto;
+    display: block;
+    box-shadow: 0 8px 30px rgba(123, 47, 247, 0.6),
+                0 0 40px rgba(241, 7, 163, 0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+button[type="submit"]:hover::before {
+    left: 100%;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(123, 47, 247, 0.8),
+                0 0 60px rgba(241, 7, 163, 0.5);
+    background: linear-gradient(135deg, #f107a3 0%, #7b2ff7 50%, #00d4ff 100%);
+}
+
+button[type="submit"]:active {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(123, 47, 247, 0.7);
+}
+
+/* Link Styling */
+a {
+    display: inline-block;
+    background: linear-gradient(135deg, #00d4ff 0%, #7b2ff7 100%);
+    color: white;
+    padding: 15px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    margin: 30px auto;
+    display: block;
+    width: fit-content;
+    box-shadow: 0 8px 30px rgba(0, 212, 255, 0.5);
+    transition: all 0.3s ease;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+a:hover::before {
+    left: 100%;
+}
+
+a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 212, 255, 0.7),
+                0 0 50px rgba(123, 47, 247, 0.4);
+    background: linear-gradient(135deg, #7b2ff7 0%, #f107a3 100%);
+}
+
+a:active {
+    transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h3 {
+        font-size: 1.6rem;
+    }
+
+    h3 span {
+        font-size: 1.8rem;
+    }
+
+    form {
+        padding: 25px;
+    }
+
+    table {
+        font-size: 0.95rem;
+    }
+
+    th, td {
+        padding: 15px 12px;
+    }
+
+    button[type="submit"], a {
+        padding: 14px 30px;
+        font-size: 1rem;
+    }
+}

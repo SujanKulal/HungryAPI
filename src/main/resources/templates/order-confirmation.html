@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Order Confirmed!</h1>
+
+<table border="1">
+    <tr>
+        <th>Dish Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+    </tr>
+    <tr th:each="dish, iterStat : ${orderedDishes}">
+        <td th:text="${dish.name}"></td>
+        <td th:text="${dish.price}"></td>
+        <td th:text="${quantities[iterStat.index]}"></td>
+        <td th:text="${dish.price * quantities[iterStat.index]}"></td>
+    </tr>
+</table>
+
+<h3>Total Paid: <span th:text="${total}"></span></h3>
+
+<a href="/home">Back to Menu</a>
+</body>
+</html>

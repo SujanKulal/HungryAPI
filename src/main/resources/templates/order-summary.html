@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Summary</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+<body>
+<h1>Your Order</h1>
+
+<table border="1">
+    <tr>
+        <th>Dish Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+    </tr>
+    <tr th:each="dish, iterStat : ${selectedDishes}">
+        <td th:text="${dish.name}"></td>
+        <td th:text="${dish.price}"></td>
+        <td th:text="${quantities[iterStat.index]}"></td>
+        <td th:text="${dish.price * quantities[iterStat.index]}"></td>
+    </tr>
+</table>
+
+<h3>Total: <span th:text="${total}"></span></h3>
+
+<form action="/confirm-order" method="post">
+    <div th:each="dish,iterStat : ${selectedDishes}">
+        <input type="hidden" name="dishIds" th:value = "${dish.id}">
+        <input type="hidden" name="quantities" th:value="${quantities[iterStat.index]}">
+    </div>
+    <input type="hidden" name="total" th:value="${total}">
+    <button type="submit">Confirm Order</button>
+</form>
+</body>
+</html>

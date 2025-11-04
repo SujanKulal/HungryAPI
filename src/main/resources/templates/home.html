@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+<body>
+<h1>Available Dishes</h1>
+
+<form th:action="@{/order-summary}" method="post">
+    <table border="1">
+        <tr>
+            <th>Select</th>
+            <th>Dish Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+
+        <tr th:each="dish : ${dishes}">
+            <td>
+                <input type="checkbox" name="dishIds" th:value="${dish.id}">
+            </td>
+            <td th:text="${dish.name}"></td>
+            <th th:text="${dish.category}"></th>
+            <td th:text="${dish.price}"></td>
+
+            <td><input type="number" th:name="'quantity_' + ${dish.id}"  value="1" min="1"></td>
+        </tr>
+    </table>
+
+    <button type="submit">Place Order</button>
+</form>
+</body>
+</html>
